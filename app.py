@@ -14,7 +14,7 @@ CLIENT_WEBSITE_URL = "https://www.daraz.pk"
 
 st.set_page_config(page_title="Daraz AI Support System", page_icon="🛒", layout="centered")
 
-# Hide Streamlit and GitHub elements for professional look
+# Hide Streamlit and GitHub elements for professional white-label look
 hide_style = """
         <style>
         #MainMenu {visibility: hidden;}
@@ -165,15 +165,18 @@ elif st.session_state.page == "chat_interface":
                     bot_response = response.text
                     st.write(bot_response)
                     
+                    # 🔥 NEW FIX: Saare Bold asterisks (*) khatam karna taake voice engine "sitara" na bole
+                    clean_voice_text = bot_response.replace("*", "")
+                    
                     # Text-to-Speech Engine Pipeline
                     try:
-                        tts = gTTS(text=bot_response, lang='ur', slow=False)
+                        tts = gTTS(text=clean_voice_text, lang='ur', slow=False)
                         fp = io.BytesIO()
                         tts.write_to_fp(fp)
                         fp.seek(0)
                         st.audio(fp, format='audio/mp3', autoplay=True)
                     except:
-                        tts = gTTS(text=bot_response, lang='en', slow=False)
+                        tts = gTTS(text=clean_voice_text, lang='en', slow=False)
                         fp = io.BytesIO()
                         tts.write_to_fp(fp)
                         fp.seek(0)
