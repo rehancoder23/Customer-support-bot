@@ -1,0 +1,6 @@
+streamlit
+streamlit-mic-recorder
+google-generativeai
+gTTS
+beautifulsoup4
+requests
