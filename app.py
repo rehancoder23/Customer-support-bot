@@ -195,3 +195,7 @@ if st.session_state.chat_history:
         st.text(f"User Prompt: {chat['user']}")
         st.text(f"Agent Response: {chat['bot']}")
         st.write("")
+# 🤫 Yeh hai hamara khufia rasta jo UptimeRobot ke liye hai
+if st.context.headers.get("X-UptimeRobot") or "ping" in st.context.current_path:
+    st.write("Jaag raha hoon bahi!")
+    st.stop()
