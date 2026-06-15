@@ -196,3 +196,8 @@ if st.session_state.chat_history:
         st.text(f"Agent Response: {chat['bot']}")
         st.write("")
 # 🤫 Yeh hai hamara khufia rasta jo UptimeRobot ke liye hai
+# 🤫 Khufia rasta UptimeRobot ke liye bina kisi error ke
+import urllib.parse
+if "ping" in st.experimental_get_query_params():
+    st.write("Jaag raha hoon bahi!")
+    st.stop()
